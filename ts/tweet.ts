@@ -10,13 +10,36 @@ class Tweet {
 	//returns either 'live_event', 'achievement', 'completed_event', or 'miscellaneous'
     get source():string {
         //TODO: identify whether the source is a live event, an achievement, a completed event, or miscellaneous.
-        return "unknown";
+        const str = this.text.toLowerCase();
+
+        if (str.startsWith("just completed") || str.includes("complete") || str.includes("post")) {
+            return "completed_event";
+        }
+
+        if (str.includes("live") || str.includes("watch") || str.includes("right now") || str.includes("now")) {
+            return "live_event";
+        }
+
+        if (str.includes("new") || str.includes("personal best") || str.includes("record") || str.includes("best") || str.includes("fastest")) {
+            return "achievement";
+        }
+        return "miscellaneous";
     }
 
     //returns a boolean, whether the text includes any content written by the person tweeting.
     get written():boolean {
         //TODO: identify whether the tweet is written
-        return false;
+       let str = this.text
+                    .replace(/#RunKeeper/gi, "")
+                    .replace(/https?:\/\/\S+/g, "")
+                    .trim();
+
+        if (this.text.toLowerCase().startsWith("just completed") || this.text.toLowerCase().startsWith("just posted")) {
+            const parts = this.text.split(/-|—/);
+            return parts.length > 1 && parts[1].trim().length > 0;
+        }
+
+        return true;
     }
 
     get writtenText():string {
@@ -24,7 +47,13 @@ class Tweet {
             return "";
         }
         //TODO: parse the written text from the tweet
-        return "";
+        let str = this.text
+                    .replace(/#RunKeeper/gi, "")
+                    .replace(/https?:\/\/\S+/g, "")
+                    .trim();
+
+        const parts = this.text.split(/-|—/);
+        return parts[1].trim();
     }
 
     get activityType():string {
