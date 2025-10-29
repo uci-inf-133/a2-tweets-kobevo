@@ -25,10 +25,8 @@ function addEventHandlerForSearch() {
 		document.getElementById("searchCount").innerText = (search == "") ? 0: filter.length;
 
 		const table = document.getElementById("tweetTable");
-		table.innerHTML = "";
-		filter.forEach((index, twt) => {
-			table.innerHTML += twt.getHTMLTableRow(index + 1);
-		})
+		table.innerHTML = ;
+		
 
 	})
 }

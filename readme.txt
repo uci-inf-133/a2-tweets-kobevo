@@ -14,9 +14,11 @@
 - Understanding JS methods like .replace or .match: MDN Javascript Doc https://developer.mozilla.org/en-US/
 - Understanding Vega Lite: https://vega.github.io/vega-lite/docs/encoding.html
 - Regex Syntax: Googling and referencing its respective AI Overview (ex. Googling "What is the regex syntax for whitespace") and https://regexr.com/
+- Part 3, JS Table Syntax: MDN Javascript Doc https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/td
+
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
-None, This was purely individual based on previous experience with React with both JS and TS
+None, This was purely individual based on previous experience with React JS and TS
 
 5. Is there anything special we need to know in order to run your code?
 
