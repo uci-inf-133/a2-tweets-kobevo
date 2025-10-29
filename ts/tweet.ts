@@ -61,15 +61,38 @@ class Tweet {
             return "unknown";
         }
         //TODO: parse the activity type from the text of the tweet
-        return "";
+        
+        const str = this.text.toLowerCase();
+
+        const activities = [
+            "walk", "bike", "hike", "swim", "row", "elliptical", "ski", "yoga", "run"
+        ];
+
+        for (let i = 0; i < activities.length; ++i) {
+            if (str.includes(activities[i])) {
+                return activities[i];
+            }
+        }
+
+        return "other";
     }
 
     get distance():number {
         if(this.source != 'completed_event') {
             return 0;
         }
+
+        const str = this.text.toLowerCase();
+
         //TODO: prase the distance from the text of the tweet
-        return 0;
+        const match = str.match(/([\d.]+\s*(mi|km))/i);
+
+        if (!match) return 0;
+
+        let distance = parseFloat(match[1]);
+        const unit = match[2].toLowerCase();
+        if (unit == "km") distance = distance / 1.609;
+        return distance;
     }
 
     getHTMLTableRow(rowNumber:number):string {
