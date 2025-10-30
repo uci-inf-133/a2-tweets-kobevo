@@ -16,19 +16,28 @@ function addEventHandlerForSearch() {
 
 	document.getElementById("textFilter").addEventListener("input", (e) => {
 		const search = e.target.value.toLowerCase();
+		const table = document.getElementById("tweetTable");
+		const count = document.getElementById("searchCount");
 		document.getElementById("searchText").innerText = e.target.value;
+
+		if (search.trim() == "") {
+			table.innerHTML = "";
+			count.innerText = 0;
+			return;
+		}
 
 		const filter = tweet_array.filter(twt => 
 			twt.text.toLowerCase().includes(search)
 		);
 
-		document.getElementById("searchCount").innerText = (search == "") ? 0: filter.length;
+		count.innerText = filter.length;
 
-		const table = document.getElementById("tweetTable");
 		table.innerHTML = filter
 			.map((twt, index) => twt.getHTMLTableRow(index + 1))
 			.join("");
+
 	})
+
 }
 
 //Wait for the DOM to load

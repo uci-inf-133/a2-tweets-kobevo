@@ -105,7 +105,7 @@ class Tweet {
             "😀", "😂", "💯", "❤️", "😁", "🏃", "🏃‍♂️", "🏃‍♀️", "🔥", "💪", "👍"
         ]
         const negative = [
-            "tired", "sore", "hurt", "injured", "hot", "rough week", "bad weather", "unmotivated", "awful", "terrible", "too cold",
+            "tired", "sore", "tough", "hurt", "injured", "hot", "rough week", "bad weather", "unmotivated", "awful", "terrible", "too cold",
             "pain", "bad run", "worst", "rain", "wet", "soaked", "miserable", "sick", "brutal", "😫", "😅", "😑", "😭", "😩"
         ]
 
@@ -117,10 +117,10 @@ class Tweet {
             if (this.text.includes(word)) score--;
         })
 
-        if (score > 3) return "very positive";
+        if (score > 2) return "very positive";
         if (score > 0) return "positive";
         if (score < 0) return "negative";
-        if (score < -3) return "very negative";
+        if (score < -2) return "very negative";
         return "neutral";
     }
 
