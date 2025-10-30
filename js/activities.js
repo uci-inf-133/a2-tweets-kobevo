@@ -99,7 +99,7 @@ function parseTweets(runkeeper_tweets) {
 		}));
 
 
-	console.log(topThreeArray);
+	// console.log(topThreeArray);
 
 	const distancesByWeekSpec = {
 		"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
