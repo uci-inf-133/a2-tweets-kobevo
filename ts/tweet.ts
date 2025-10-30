@@ -101,7 +101,7 @@ class Tweet {
         let score = 0;
         const positive = [
             "PR", "PB", "first", "!", "personal best", "refreshed", "awesome", "fun", "enjoy", "nice", "record", "great", "good", "improving", 
-            "worked hard", "beautiful", "gorgeous", "beautiful", "fantastic", "happy", "best", "early morning", 
+            "worked hard", "beautiful", "gorgeous", "beautiful", "fantastic", "happy", "best", "early morning", "liking",
             "😀", "😂", "💯", "❤️", "😁", "🏃", "🏃‍♂️", "🏃‍♀️", "🔥", "💪", "👍"
         ]
         const negative = [
