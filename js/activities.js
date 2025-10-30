@@ -67,7 +67,7 @@ function parseTweets(runkeeper_tweets) {
 	  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 	  "description": "A graph of the number of Tweets containing each type of activity.",
 	  "data": {
-	    "values": tweet_array
+	    "values": tweet_array.filter(twt => twt.activityType != "unknown")
 	  },
 	  //TODO: Add mark and encoding
 		"mark": "bar",
